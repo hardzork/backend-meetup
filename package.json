@@ -1,0 +1,23 @@
+{
+  "name": "challenge02",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hardzork/gostack-7-challenge-02.git",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
+    "sucrase": "^3.10.1"
+  }
+}
