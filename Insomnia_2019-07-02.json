@@ -1,0 +1,159 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2019-07-02T12:46:59.717Z",
+  "__export_source": "insomnia.desktop.app:v6.5.4",
+  "resources": [
+    {
+      "_id": "req_d8097045af554c20b8a0b7026ee132f3",
+      "authentication": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTYyMDcxNDc1LCJleHAiOjE1NjI2NzYyNzV9.gt2QentoaN8jTuFgeUQwt697csqjv9wkGpj35OtiuZQ",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"oldPassword\": \"123456\",\n\t\"password\": \"1234567\",\n\t\"confirmPassword\": \"1234567\"\n}"
+      },
+      "created": 1562070686541,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_6b887253b29f45ddbd78cde07b8ee786",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1562070686541,
+      "method": "PUT",
+      "modified": 1562071535597,
+      "name": "Update",
+      "parameters": [],
+      "parentId": "fld_7e3be835097b46098a89c209fcf03ead",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ base_url  }}/users",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_7e3be835097b46098a89c209fcf03ead",
+      "created": 1562070471462,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1562070471462,
+      "modified": 1562070471462,
+      "name": "Users",
+      "parentId": "wrk_e803ef5603b649f9939c49b539afd2aa",
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_e803ef5603b649f9939c49b539afd2aa",
+      "created": 1562070456509,
+      "description": "",
+      "modified": 1562070456509,
+      "name": "Challenge 02 - GoStack",
+      "parentId": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_ebd0cbf38cb944ec9339881757050a73",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"hardzork\",\n\t\"email\": \"hardzork@agropalma.com.br\",\n\t\"password\": \"123456\"\n}"
+      },
+      "created": 1562070658867,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_95816be5ad8c43889806607fe273de69",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1562070658867,
+      "method": "POST",
+      "modified": 1562070893418,
+      "name": "Create",
+      "parameters": [],
+      "parentId": "fld_7e3be835097b46098a89c209fcf03ead",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ base_url  }}/users",
+      "_type": "request"
+    },
+    {
+      "_id": "req_ec4f79ee63ba41ca94434536f3278f7b",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"hardzork@agropalma.com.br\",\n\t\"password\": \"manutdcr7\"\n}"
+      },
+      "created": 1562070729192,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_ad1e3eeb5fb24bc4bb7f581e75ec4ded",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1562070729192,
+      "method": "POST",
+      "modified": 1562071473465,
+      "name": "Create",
+      "parameters": [],
+      "parentId": "fld_4a72199a57454ee68c47fa616defa80e",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ base_url  }}/sessions",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_4a72199a57454ee68c47fa616defa80e",
+      "created": 1562070465996,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1562070465997,
+      "modified": 1562070465996,
+      "name": "Session",
+      "parentId": "wrk_e803ef5603b649f9939c49b539afd2aa",
+      "_type": "request_group"
+    },
+    {
+      "_id": "env_51df98fb2cef40d0e6761e67753c4c83a87c39ed",
+      "color": null,
+      "created": 1562070456717,
+      "data": { "base_url": "http://localhost:3333" },
+      "dataPropertyOrder": { "&": ["base_url"] },
+      "isPrivate": false,
+      "metaSortKey": 1562070456717,
+      "modified": 1562070803823,
+      "name": "Base Environment",
+      "parentId": "wrk_e803ef5603b649f9939c49b539afd2aa",
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_51df98fb2cef40d0e6761e67753c4c83a87c39ed",
+      "cookies": [],
+      "created": 1562070456721,
+      "modified": 1562070456721,
+      "name": "Default Jar",
+      "parentId": "wrk_e803ef5603b649f9939c49b539afd2aa",
+      "_type": "cookie_jar"
+    }
+  ]
+}
