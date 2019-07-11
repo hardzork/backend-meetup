@@ -39,7 +39,6 @@ class SubscriptionController {
       user_id: user.id,
       meetup_id: meetup.id,
     });
-
     const mailData = {
       owner: {
         name: meetup.User.name,
@@ -50,7 +49,7 @@ class SubscriptionController {
         email: user.email,
       },
       meetup: {
-        name: meetup.name,
+        name: meetup.title,
         date: meetup.date,
       },
     };
