@@ -1,6 +1,8 @@
 import Subscription from '../models/Subscription';
 import User from '../models/User';
 import Meetup from '../models/Meetup';
+import Queue from '../../lib/Queue';
+import SubscriptionMail from '../jobs/SubscriptionMail';
 
 class SubscriptionController {
   async store(req, res) {
@@ -37,6 +39,23 @@ class SubscriptionController {
       user_id: user.id,
       meetup_id: meetup.id,
     });
+
+    const mailData = {
+      owner: {
+        name: meetup.User.name,
+        email: meetup.User.email,
+      },
+      user: {
+        name: user.name,
+        email: user.email,
+      },
+      meetup: {
+        name: meetup.name,
+        date: meetup.date,
+      },
+    };
+
+    await Queue.add(SubscriptionMail.key, mailData);
 
     return res.json(subscription);
   }
