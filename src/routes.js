@@ -35,6 +35,7 @@ routes.post(
 /**
  * Meetup
  */
+routes.get('/meetups', authMiddleware, MeetupController.index);
 routes.post('/meetups', authMiddleware, MeetupController.store);
 routes.put('/meetups/:id', authMiddleware, MeetupController.update);
 routes.delete('/meetups/:id', authMiddleware, MeetupController.delete);
@@ -50,5 +51,6 @@ routes.post(
   authMiddleware,
   SubscriptionController.store
 );
+routes.get('/subscriptions', authMiddleware, SubscriptionController.index);
 
 export default routes;
