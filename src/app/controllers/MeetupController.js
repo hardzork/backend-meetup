@@ -24,6 +24,30 @@ class MeetupController {
     return res.json(meetups);
   }
 
+  async show(req, res) {
+    const paramsSchema = Yup.object().shape({
+      id: Yup.number().required(),
+    });
+
+    if (!(await paramsSchema.isValid(req.params))) {
+      return res.status(400).json({ error: 'This is not a meetup id.' });
+    }
+
+    const { id } = req.params;
+    const meetup = await Meetup.findOne({
+      where: {
+        id,
+      },
+      include: [User],
+    });
+
+    if (!meetup) {
+      return res.status(404).json({ error: 'Meetup not found.' });
+    }
+
+    return res.json(meetup);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       title: Yup.string().required(),

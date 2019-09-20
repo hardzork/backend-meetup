@@ -1,9 +1,20 @@
-import { parseISO, startOfDay, isEqual } from 'date-fns';
+import { parseISO, startOfDay, endOfDay, isEqual } from 'date-fns';
+import { Op } from 'sequelize';
 import Meetup from '../models/Meetup';
 
 class OrganizingController {
   async index(req, res) {
-    const meetups = await Meetup.findAll({ where: { user_id: req.userID } });
+    const { startDate, endDate } = req.query;
+    const parsedStartDate = parseISO(startDate);
+    const parsedEndDate = parseISO(endDate);
+    const meetups = await Meetup.findAll({
+      where: {
+        user_id: req.userID,
+        date: {
+          [Op.between]: [startOfDay(parsedStartDate), endOfDay(parsedEndDate)],
+        },
+      },
+    });
     const distinctDates = [
       ...new Set(meetups.map(meetup => startOfDay(meetup.date).toISOString())),
     ];
