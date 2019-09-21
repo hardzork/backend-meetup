@@ -3,6 +3,7 @@ import { isBefore, parseISO, startOfDay, endOfDay } from 'date-fns';
 import { Op } from 'sequelize';
 import Meetup from '../models/Meetup';
 import User from '../models/User';
+import File from '../models/File';
 
 class MeetupController {
   async index(req, res) {
@@ -16,7 +17,7 @@ class MeetupController {
           [Op.between]: [startOfDay(parsedDate), endOfDay(parsedDate)],
         },
       },
-      include: [User],
+      include: [{ model: User, as: 'owner' }],
       offset: 10 * page - 10,
       limit: 10,
     });
@@ -38,7 +39,10 @@ class MeetupController {
       where: {
         id,
       },
-      include: [User],
+      include: [
+        { model: User, as: 'owner', attributes: ['id', 'name', 'email'] },
+        { model: File, as: 'banner', attributes: ['id', 'path', 'url'] },
+      ],
     });
 
     if (!meetup) {
